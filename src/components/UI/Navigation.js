@@ -9,7 +9,7 @@ import IconButton from 'material-ui/IconButton'
 import GameIcon from 'material-ui/svg-icons/hardware/videogame-asset'
 import FlatButton from 'material-ui/FlatButton'
 
-const TITLE = 'Rock - Paper - Scissors'
+const TITLE = 'S.E.T.'
 
 class Navigation extends PureComponent {
   static propTypes = {
@@ -23,8 +23,8 @@ class Navigation extends PureComponent {
     this.props.signOut()
   }
 
-  signUp = () => {
-    this.props.push('/sign-up')
+  signIn = () => {
+    this.props.push('/sign-in')
   }
 
   goHome = () => {
@@ -39,7 +39,7 @@ class Navigation extends PureComponent {
         iconElementLeft={<IconButton onClick={this.goHome}><GameIcon /></IconButton>}
         iconElementRight={signedIn ?
           <FlatButton label="Sign out" onClick={this.signOut.bind(this)} /> :
-          <FlatButton label="Sign up" onClick={this.signUp} />
+          <FlatButton label="Sign in" onClick={this.signIn} />
         }
       />
     )

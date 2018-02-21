@@ -27,13 +27,9 @@ class BatchsContainer extends PureComponent {
   render() {
     return(
       <div className="batch wrapper">
-
-      <CreateBatchForm />
-
-
-
         <header className="renderHeader">
           <Title content="Batches" />
+          <CreateBatchForm />
         </header>
         <main className="renderMain">
           { this.props.batches.map(this.renderBatch.bind(this)) }

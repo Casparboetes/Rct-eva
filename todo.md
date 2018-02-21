@@ -122,3 +122,14 @@ class CreateBatchForm extends PureComponent {
 
 
 export default connect(null, { createBatch })(CreateBatchForm)
+
+===============================================================================
+
+EvaluationCategory
+
+// <ul className="categories">
+// <EvaluationCategory { ...categories } />
+// </ul>
+
+  render
+  const categories = { yellow, red, green }

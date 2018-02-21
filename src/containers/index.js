@@ -1,9 +1,7 @@
-import Lobby from './Lobby'
-import Game from './Game'
+import BatchesContainer from './BatchesContainer'
 import SignIn from './SignIn'
 
 export {
-  Lobby,
-  Game,
   SignIn,
+  BatchesContainer
 }

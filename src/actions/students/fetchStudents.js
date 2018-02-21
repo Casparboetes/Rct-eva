@@ -1,34 +1,50 @@
 import ApiClient from '../../api/client'
-// import loading from './loading'
-// import loadError from './loadError'
+import {
+  APP_LOADING,
+  APP_DONE_LOADING,
+  LOAD_ERROR,
+  LOAD_SUCCESS
+} from '../loading'
 
-export const FETCHED_RECIPES = 'FETCHED_RECIPES'
-export const FETCHED_ONE_RECIPE = 'FETCHED_ONE_RECIPE'
+export const FETCHED_STUDENTS = 'FETCHED_STUDENTS'
+export const FETCHED_ONE_STUDENT = 'FETCHED_ONE_STUDENT'
+export const FETCHED_STUDENTS_BY_BATCHNUM = 'FETCHED_STUDENTS_BY_BATCHNUM'
 
 const api = new ApiClient()
 
-export const fetchRecipes = () => {
+// export const fetchRecipes = () => {
+//   return dispatch => {
+//     const path = '/recipes'
+//     // dispatch(loading(path, true))
+//
+//     api.get(path)
+//       .then(res => dispatch({ type: FETCHED_STUDENTS, payload: res.body }))
+//     //   .catch(err => dispatch(loadError(err)))
+//     //
+//     // dispatch(loading(false))
+//   }
+// }
+
+export const fetchStudentsByBatchId = (batchNum) => {
   return dispatch => {
-    const path = '/recipes'
-    // dispatch(loading(path, true))
+    dispatch({ type: APP_LOADING })
 
-    api.get(path)
-      .then(res => dispatch({ type: FETCHED_RECIPES, payload: res.body }))
-    //   .catch(err => dispatch(loadError(err)))
-    //
-    // dispatch(loading(false))
-  }
-}
+    api.get(`/students/batch/${ batchNum }`)
+      .then(res => {
+        dispatch({ type: APP_DONE_LOADING })
+        dispatch({ type: LOAD_SUCCESS })
 
-export const fetchRecipeById = (id) => {
-  return dispatch => {
-    const path = `/recipes/${id}`
-    // dispatch(loading(path, true))
-
-    api.get(path)
-      .then(res => dispatch({ type: FETCHED_ONE_RECIPE, payload: res.body }))
-      // .catch(err => dispatch(loadError(err)))
-
-    // dispatch(loading(path, false))
+        dispatch({
+          type: FETCHED_STUDENTS_BY_BATCHNUM,
+          payload: res.body
+        })
+      })
+      .catch((err) => {
+        dispatch({ type: APP_DONE_LOADING })
+        dispatch({
+          type: LOAD_ERROR,
+          payload: err.message
+        })
+      })
   }
 }

@@ -5,7 +5,17 @@ import Title from '../components/UI/Title'
 import BatchItem, { batchShape } from './BatchItem'
 import CreateBatchForm from '../components/batches/CreateBatchForm'
 import { fetchBatches } from '../actions/batches/fetchBatches'
+import Paper from 'material-ui/Paper'
 // import './BatchesContainer.css'
+
+const dialogStyle = {
+  flex: 'auto',
+  textAlign: 'center',
+  width: 'auto',
+  padding: '1px',
+  backgroundColor: 'canvasColor',
+  color: 'black',
+}
 
 class BatchsContainer extends PureComponent {
   static propTypes = {
@@ -26,21 +36,17 @@ class BatchsContainer extends PureComponent {
 
   render() {
     return(
-      <div className="batch wrapper">
-
-      <CreateBatchForm />
-
-
-
+      <Paper style={ dialogStyle }>
         <header className="renderHeader">
-          <Title content="Batches" />
+          <Title content="#Batches" />
+          <CreateBatchForm />
         </header>
         <main className="renderMain">
           { this.props.batches.map(this.renderBatch.bind(this)) }
         </main>
         <footer className="renderFooter">
         </footer>
-      </div>
+      </Paper>
     )
   }
 }

@@ -18,44 +18,44 @@ export const fetchBatches = () => {
     dispatch({ type: APP_LOADING })
 
     api.get('/batches')
-      .then((result) => {
+      .then((res) => {
         dispatch({ type: APP_DONE_LOADING })
         dispatch({ type: LOAD_SUCCESS })
 
         dispatch({
           type: FETCHED_BATCHES,
-          payload: result.body
+          payload: res.body
         })
       })
-      .catch((error) => {
+      .catch((err) => {
         dispatch({ type: APP_DONE_LOADING })
         dispatch({
           type: LOAD_ERROR,
-          payload: error.message
+          payload: err.message
         })
       })
   }
 }
 
-export const fetchBatchById = (batchId) => {
+export const fetchBatchById = (batchNum) => {
   return dispatch => {
     dispatch({ type: APP_LOADING })
 
-    api.get(`/batches/${batchId}`)
-      .then((result) => {
+    api.get(`/students/batch/${ batchNum }`)
+      .then((res) => {
         dispatch({ type: APP_DONE_LOADING })
         dispatch({ type: LOAD_SUCCESS })
 
         dispatch({
           type: FETCHED_ONE_BATCH,
-          payload: result.body
+          payload: res.body
         })
       })
-      .catch((error) => {
+      .catch((err) => {
         dispatch({ type: APP_DONE_LOADING })
         dispatch({
           type: LOAD_ERROR,
-          payload: error.message
+          payload: err.message
         })
       })
   }

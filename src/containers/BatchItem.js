@@ -1,6 +1,17 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import Paper from 'material-ui/Paper'
+
+const dialogStyle = {
+    float: 'left',
+    display: 'flex',
+    flexFlow: 'column wrap',
+    width: '400px',
+    margin: '50px auto',
+    padding: '2rem',
+    textAlign: 'left',
+  }
 
 export const batchShape = PropTypes.shape({
     batchNum: PropTypes.number.isRequired,
@@ -23,7 +34,7 @@ class BatchItem extends PureComponent {
      const { batchNum ,endDate, startDate } = this.props
 
      return(
-       <article className="BatchItem">
+      <Paper style={ dialogStyle }>
          <header>
            <h1>
              <Link to={`/students/batch/${ batchNum }`}>
@@ -39,7 +50,7 @@ class BatchItem extends PureComponent {
          <footer>
 
          </footer>
-       </article>
+       </Paper>
      )
    }
  }

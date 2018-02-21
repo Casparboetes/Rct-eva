@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import fetchGames, { fetchPlayers } from '../actions/games/fetch'
 import { connect as subscribeToWebsocket } from '../actions/websocket'
-import CreateGameButton from '../components/games/CreateGameButton'
 import Paper from 'material-ui/Paper'
 import Menu from 'material-ui/Menu'
 import MenuItem from 'material-ui/MenuItem'
@@ -12,6 +11,7 @@ import WatchGameIcon from 'material-ui/svg-icons/image/remove-red-eye'
 import JoinGameIcon from 'material-ui/svg-icons/social/person-add'
 import PlayGameIcon from 'material-ui/svg-icons/hardware/videogame-asset'
 import WaitingIcon from 'material-ui/svg-icons/image/timelapse'
+import BatchesContainer form './containers'
 import './Lobby.css'
 
 class Lobby extends PureComponent {
@@ -22,20 +22,7 @@ class Lobby extends PureComponent {
 
   goToGame = gameId => event => this.props.push(`/play/${gameId}`)
 
-  isJoinable(game) {
-    return game.players.length < 2 &&
-      !this.isPlayer(game)
-  }
 
-  isPlayer(game) {
-    if (!this.props.currentUser) { return false }
-    return game.players.map(p => p.userId)
-      .indexOf(this.props.currentUser._id) >= 0
-  }
-
-  isPlayable(game) {
-    return this.isPlayer(game) && game.players.length === 2
-  }
 
   renderGame = (game, index) => {
     let ActionIcon = this.isJoinable(game) ? JoinGameIcon : WatchGameIcon

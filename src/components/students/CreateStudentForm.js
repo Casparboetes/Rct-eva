@@ -75,6 +75,7 @@ class CreateStudentForm extends PureComponent {
         <input
           type="text"
           ref="photo"
+          placeholder="Photo URL"
           defaultValue={this.state.photo}
           onChange={this.updatePhoto.bind(this)}
           onKeyDown={this.updatePhoto.bind(this)} />

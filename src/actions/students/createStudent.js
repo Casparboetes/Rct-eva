@@ -15,7 +15,7 @@ export default (newStudent) => {
     console.log(newStudent)
     dispatch({ type: APP_LOADING })
 
-    api.post('/student', newStudent)
+    api.post('/students', newStudent)
       .then((res) => {
         dispatch({ type: APP_DONE_LOADING })
         dispatch({ type: LOAD_SUCCESS })

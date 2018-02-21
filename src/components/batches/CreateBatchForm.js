@@ -67,7 +67,7 @@ class CreateBatchForm extends PureComponent {
           onKeyDown={this.updateBatch.bind(this)} />
 
           <input
-            type="text"
+            type="date"
             ref="startDate"
             className="startDate"
             placeholder="Enter date 01/01/2018"
@@ -76,7 +76,7 @@ class CreateBatchForm extends PureComponent {
             onKeyDown={this.updateStartDate.bind(this)} />
 
             <input
-              type="text"
+              type="date"
               ref="endDate"
               className="endDate"
               placeholder="Enter date 01/01/2018"

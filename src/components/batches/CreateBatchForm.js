@@ -77,16 +77,12 @@ class CreateBatchForm extends PureComponent {
           type="text"
           ref="batchNum"
           placeholder="Enter Batch number"
-          defaultValue={this.state.batchNum}
-          onChange={this.updateBatch.bind(this)}
           onKeyDown={this.updateBatch.bind(this)} />
           <br />
 
         <input
           type="date"
           ref="startDate"
-          defaultValue={this.state.startDate}
-          onChange={this.updateStartDate.bind(this)}
           onKeyDown={this.updateStartDate.bind(this)} />
           <br />
 

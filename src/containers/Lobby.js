@@ -11,7 +11,7 @@ import WatchGameIcon from 'material-ui/svg-icons/image/remove-red-eye'
 import JoinGameIcon from 'material-ui/svg-icons/social/person-add'
 import PlayGameIcon from 'material-ui/svg-icons/hardware/videogame-asset'
 import WaitingIcon from 'material-ui/svg-icons/image/timelapse'
-import BatchesContainer form './containers'
+import BatchesContainer from './containers'
 import './Lobby.css'
 
 class Lobby extends PureComponent {

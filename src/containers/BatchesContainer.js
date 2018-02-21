@@ -1,46 +1,53 @@
-// src/batches/BatchesContainer.js
 import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import Title from '../components/UI/Title'
 import BatchItem, { batchShape } from './BatchItem'
-import { fetchBatches } from '../actions/batches'
+// import BatchEditor from './BatchEditor'
+import { fetchBatches } from '../actions/batches/fetchBatches'
 // import './BatchesContainer.css'
 
-class BatchesContainer extends PureComponent {
+class BatchsContainer extends PureComponent {
   static propTypes = {
     batches: PropTypes.arrayOf(batchShape).isRequired,
   }
 
+
   componentWillMount() {
-    this.props.fetch()
+  //this.props.dispatch(fetchBatchs())
+  this.props.fetch() // see mapDispatchToProps below
   }
 
-  renderBatch = (batch, index) => {
-    return <BatchItem key={index} { ...batch } />
+  renderBatch(batch, index) {
+    return (
+      <BatchItem key={index} /*updateBatch={this.props.updateBatch}*/ { ...batch } />
+    )
   }
 
   render() {
-    return (
-      <div className="batches wrapper">
-        <header className="nav">
-          <Title content="  Classes" />
+    return(
+      <div className="batch wrapper">
+        <header className="renderHeader">
+          <Title content="Batches" />
         </header>
-
-        <main>
-        { this.props.batches.map(this.renderBatch) }
+        <main className="renderMain">
+          { this.props.batches.map(this.renderBatch.bind(this)) }
         </main>
+        <footer className="renderFooter">
+        </footer>
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ batches }) => ({ batches })
-const mapDispatchToProps = { fetch: fetchBatches }
-
+// <BatchEditor className="editor" />
 // Same as:
 // const mapStoreToProps = (store) => {
 //   return { batches: store.batches }
 // }
 
-export default connect(mapStateToProps, mapDispatchToProps)(BatchesContainer)
+const mapStateToProps = ({ batches }) => ({ batches })
+const mapDispatchToProps = { fetch: fetchBatches }
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(BatchsContainer)

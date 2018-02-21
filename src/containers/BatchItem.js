@@ -1,9 +1,6 @@
-// src/batches/BatchItem.js
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-// import './BatchItem.css'
 
 export const batchShape = PropTypes.shape({
     batchNum: PropTypes.number.isRequired,
@@ -16,32 +13,35 @@ class BatchItem extends PureComponent {
     ...batchShape.isRequired,
   }
 
-  render() {
-    const { batchNum ,endDate, startDate } = this.props
+ // forceUpdateHandler(){
+ //   this.forceUpdate()
+ // }
 
-    return(
-      <article className="BatchItem">
-        <header>
-          <h1>
-            <Link to={`/students/batch/${ batchNum }`}>
-            Batch {batchNum}
-            </Link>
-          </h1>
-        </header>
-        <div>
-          <p>Start date on: { startDate }</p>
-          <p>End date on: { endDate }</p>
-        </div>
+ // onClick={this.forceUpdateHandler.bind(this)}
 
-        <footer>
+ render() {
+     const { batchNum ,endDate, startDate } = this.props
 
-        </footer>
-      </article>
-    )
-  }
-}
+     return(
+       <article className="BatchItem">
+         <header>
+           <h1>
+             <Link to={`/students/batch/${ batchNum }`}>
+             Batch {batchNum}
+             </Link>
+           </h1>
+         </header>
+         <div>
+           <p>Start date on: { startDate }</p>
+           <p>End date on: { endDate }</p>
+         </div>
 
-const mapDispatchToProps = {
-}
+         <footer>
 
-export default connect(null, mapDispatchToProps)(BatchItem)
+         </footer>
+       </article>
+     )
+   }
+ }
+
+export default BatchItem

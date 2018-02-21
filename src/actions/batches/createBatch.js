@@ -22,11 +22,11 @@ export default (newBatch) => {
         dispatch({ type: CREATED_BATCH, payload: res.body})
       })
 
-      .catch((error) => {
+      .catch((err) => {
         dispatch({ type: APP_DONE_LOADING })
         dispatch({
           type: LOAD_ERROR,
-          payload: error.message
+          payload: err.message
         })
       })
   }

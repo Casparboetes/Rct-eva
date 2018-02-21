@@ -5,6 +5,7 @@ import Title from '../components/UI/Title'
 import Paper from 'material-ui/Paper'
 import StudentItem, { studentShape } from './StudentItem'
 import { fetchStudentsByBatchId } from '../actions/students/fetchStudents'
+import CreateStudentForm from '../components/students/CreateStudentForm'
 
 const dialogStyle = {
   flex: 'auto',
@@ -32,7 +33,8 @@ class StudentContainer extends PureComponent {
     return (
       <Paper style={ dialogStyle }>
         <header className="nav">
-          <Title content="#Student List" />
+          <Title content="Student List" />
+          <CreateStudentForm />
         </header>
         <main>
           {this.props.students.map(this.renderStudent.bind(this))}

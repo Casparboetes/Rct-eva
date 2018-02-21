@@ -34,7 +34,7 @@ class StudentContainer extends PureComponent {
       <Paper style={ dialogStyle }>
         <header className="nav">
           <Title content="Student List" />
-          <CreateStudentForm />
+          <CreateStudentForm batchId={this.props.match.params.batchId} />
         </header>
         <main>
           {this.props.students.map(this.renderStudent.bind(this))}

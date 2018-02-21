@@ -23,7 +23,7 @@ class CreateStudentForm extends PureComponent {
   constructor(props) {
     super()
 
-    const { studentName, photo,  } = props
+    const { studentName, photo } = props
 
     this.state = {
       studentName,
@@ -52,9 +52,9 @@ class CreateStudentForm extends PureComponent {
     const batch = {
       studentName,
       photo,
+      batchNum: this.props.batchId,
     }
 
-    console.log(batch)
     this.props.createStudent(batch)
   }
 

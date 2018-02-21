@@ -12,6 +12,7 @@ const api = new API()
 
 export default (newStudent) => {
   return (dispatch) => {
+    console.log(dispatch)
     console.log(newStudent)
     dispatch({ type: APP_LOADING })
 

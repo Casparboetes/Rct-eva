@@ -10,9 +10,9 @@ import Paper from 'material-ui/Paper'
 
 const dialogStyle = {
   flex: 'auto',
+  textAlign: 'center',
   width: 'auto',
-  margin: '1px',
-  padding: '2rem',
+  padding: '1px',
   backgroundColor: 'canvasColor',
   color: 'black',
 }

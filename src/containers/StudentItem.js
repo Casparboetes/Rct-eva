@@ -8,15 +8,14 @@ import Paper from 'material-ui/Paper'
 const PLACEHOLDER = 'http://via.placeholder.com/500x180?text=No%20Image'
 
 const dialogStyle = {
-  display: 'flex',
-  flexFlow: 'column wrap',
-  flex: 'left',
-  width: '400px',
-  margin: '50px auto',
-  padding: '2rem',
-}
-
-
+    display: 'left',
+    float: 'left',
+    flexFlow: 'column wrap',
+    width: '400px',
+    margin: '50px auto',
+    padding: '2rem',
+    textAlign: 'left',
+  }
 
 export const studentShape = PropTypes.shape({
     _id: PropTypes.string.isRequired,

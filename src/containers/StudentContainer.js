@@ -2,8 +2,18 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import Title from '../components/UI/Title'
+import Paper from 'material-ui/Paper'
 import StudentItem, { studentShape } from './StudentItem'
 import { fetchStudentsByBatchId } from '../actions/students/fetchStudents'
+
+const dialogStyle = {
+  flex: 'auto',
+  textAlign: 'center',
+  width: 'auto',
+  padding: '1px',
+  backgroundColor: 'canvasColor',
+  color: 'black',
+}
 
 class StudentContainer extends PureComponent {
   static propTypes = {
@@ -20,14 +30,14 @@ class StudentContainer extends PureComponent {
 
   render() {
     return (
-      <div className="students wrapper">
+      <Paper style={ dialogStyle }>
         <header className="nav">
-          <Title content="Student List" />
+          <Title content="#Student List" />
         </header>
         <main>
           {this.props.students.map(this.renderStudent.bind(this))}
         </main>
-      </div>
+      </Paper>
     )
   }
 }

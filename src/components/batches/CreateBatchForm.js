@@ -10,8 +10,10 @@ const dialogStyle = {
   float: 'left',
   width: '400px',
   marginTop: '96px',
+  heigth: '500px',
   margin: '50px atuo',
   padding: '2rem',
+  textAlign: 'left',
 }
 
 const buttonStyle = {

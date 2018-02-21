@@ -10,6 +10,7 @@ const dialogStyle = {
     width: '400px',
     margin: '50px auto',
     padding: '2rem',
+    textAlign: 'left',
   }
 
 export const batchShape = PropTypes.shape({

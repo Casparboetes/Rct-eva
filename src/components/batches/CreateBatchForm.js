@@ -70,7 +70,7 @@ class CreateBatchForm extends PureComponent {
             type="text"
             ref="startDate"
             className="startDate"
-            placeholder="Enter start date"
+            placeholder="Enter date 01/01/2018"
             defaultValue={this.state.startDate}
             onChange={this.updateStartDate.bind(this)}
             onKeyDown={this.updateStartDate.bind(this)} />
@@ -79,7 +79,7 @@ class CreateBatchForm extends PureComponent {
               type="text"
               ref="endDate"
               className="endDate"
-              placeholder="Enter start date"
+              placeholder="Enter date 01/01/2018"
               defaultValue={this.state.endDate}
               onChange={this.updateEndDate.bind(this)}
               onKeyDown={this.updateEndDate.bind(this)} />
@@ -92,4 +92,4 @@ class CreateBatchForm extends PureComponent {
   }
 }
 
-export default connect(null, {createBatch })(CreateBatchForm)
+export default connect(null, { createBatch })(CreateBatchForm)

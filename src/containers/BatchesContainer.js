@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import Title from '../components/UI/Title'
 import BatchItem, { batchShape } from './BatchItem'
-// import BatchEditor from './BatchEditor'
+import CreateBatchForm from '../components/batches/CreateBatchForm'
 import { fetchBatches } from '../actions/batches/fetchBatches'
 // import './BatchesContainer.css'
 
@@ -27,6 +27,11 @@ class BatchsContainer extends PureComponent {
   render() {
     return(
       <div className="batch wrapper">
+
+      <CreateBatchForm />
+
+
+
         <header className="renderHeader">
           <Title content="Batches" />
         </header>

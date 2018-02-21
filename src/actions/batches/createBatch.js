@@ -1,4 +1,3 @@
-// src/actions/games/create.js
 import API from '../../api/client'
 import {
   APP_LOADING,
@@ -7,17 +6,22 @@ import {
   LOAD_SUCCESS
 } from '../loading'
 
+export const CREATED_BATCH = 'CREATED_BATCH'
+
 const api = new API()
 
-export default () => {
+export default (newBatch) => {
   return (dispatch) => {
+    console.log(newBatch)
     dispatch({ type: APP_LOADING })
 
-    api.post('/games', {})
-      .then(() => {
+    api.post('/batches', newBatch)
+      .then((res) => {
         dispatch({ type: APP_DONE_LOADING })
         dispatch({ type: LOAD_SUCCESS })
+        dispatch({ type: CREATED_BATCH, payload: res.body})
       })
+
       .catch((error) => {
         dispatch({ type: APP_DONE_LOADING })
         dispatch({

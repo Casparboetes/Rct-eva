@@ -11,7 +11,7 @@ import WatchGameIcon from 'material-ui/svg-icons/image/remove-red-eye'
 import JoinGameIcon from 'material-ui/svg-icons/social/person-add'
 import PlayGameIcon from 'material-ui/svg-icons/hardware/videogame-asset'
 import WaitingIcon from 'material-ui/svg-icons/image/timelapse'
-import BatchesContainer from './containers'
+// import BatchesContainer from './containers'
 import './Lobby.css'
 
 class Lobby extends PureComponent {
@@ -49,9 +49,7 @@ class Lobby extends PureComponent {
         <h1>Lobby!</h1>
         <CreateGameButton />
         <Paper className="paper">
-          <Menu>
-            {this.props.games.map(this.renderGame)}
-          </Menu>
+
         </Paper>
       </div>
     )

@@ -7,9 +7,10 @@ import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
 
 const dialogStyle = {
-  float: 'center',
+  float: 'left',
   width: '400px',
-  margin: '50px auto',
+  marginTop: '96px',
+  margin: '50px atuo',
   padding: '2rem',
 }
 

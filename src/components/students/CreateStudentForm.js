@@ -67,6 +67,8 @@ class CreateStudentForm extends PureComponent {
           type="text"
           ref="studentName"
           placeholder="Enter full name"
+          defaultValue={this.state.studentName}
+          onChange={this.updateStudent.bind(this)}
           onKeyDown={this.updateStudent.bind(this)} />
           <br />
 
@@ -74,6 +76,8 @@ class CreateStudentForm extends PureComponent {
           type="text"
           ref="photo"
           placeholder="Photo URL"
+          defaultValue={this.state.photo}
+          onChange={this.updatePhoto.bind(this)}
           onKeyDown={this.updatePhoto.bind(this)} />
           <br />
 

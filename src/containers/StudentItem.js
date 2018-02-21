@@ -5,8 +5,6 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Paper from 'material-ui/Paper'
 
-const PLACEHOLDER = 'http://via.placeholder.com/500x180?text=No%20Image'
-
 const dialogStyle = {
     float: 'left',
     display: 'flex',
@@ -41,7 +39,7 @@ class StudentItem extends PureComponent {
       <Paper style={ dialogStyle }>
         <header>
           <div className="cover"
-            style={{ backgroundImage: `url(${photo || PLACEHOLDER })` }} />
+            style={{ height: '200px', backgroundImage: `url(${photo })` }} />
 
             <h1>
               <Link to={`/students/${ _id }`}>

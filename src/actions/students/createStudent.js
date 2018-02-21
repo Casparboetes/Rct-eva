@@ -4,29 +4,29 @@ import {
   APP_DONE_LOADING,
   LOAD_ERROR,
   LOAD_SUCCESS
-} from '../user/loading'
+} from '../loading'
 
-export const CREATED_RECIPE = 'CREATED_RECIPE'
+export const CREATED_STUDENT = 'CREATED_STUDENT'
 
 const api = new API()
 
-export default (newRecipe) => {
+export default (newStudent) => {
   return (dispatch) => {
-    console.log(newRecipe)
+    console.log(newStudent)
     dispatch({ type: APP_LOADING })
 
-    api.post('/recipes', newRecipe)
+    api.post('/student', newStudent)
       .then((res) => {
         dispatch({ type: APP_DONE_LOADING })
         dispatch({ type: LOAD_SUCCESS })
-        dispatch({ type: CREATED_RECIPE, payload: res.body})
+        dispatch({ type: CREATED_STUDENT, payload: res.body})
       })
 
-      .catch((error) => {
+      .catch((err) => {
         dispatch({ type: APP_DONE_LOADING })
         dispatch({
           type: LOAD_ERROR,
-          payload: error.message
+          payload: err.message
         })
       })
   }

@@ -8,7 +8,8 @@ const dialogStyle = {
     display: 'flex',
     flexFlow: 'column wrap',
     width: '400px',
-    margin: '50px auto',
+    margin: '2rem',
+    marginLeft: '2rem',
     padding: '2rem',
     textAlign: 'left',
   }

@@ -1,6 +1,4 @@
 import React, { PureComponent } from 'react'
-import Editor from 'react-medium-editor'
-import toMarkdown from 'to-markdown'
 import { connect } from 'react-redux'
 import createBatch from '../../actions/batches/createBatch'
 

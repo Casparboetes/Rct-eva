@@ -24,7 +24,7 @@ const dialogStyle = {
 
 export const studentShape = PropTypes.shape({
     _id: PropTypes.string.isRequired,
-    batchNum: PropTypes.number.isRequired,
+    batchNum: PropTypes.number,
     studentName: PropTypes.string.isRequired,
     photo: PropTypes.string,
     yellow: PropTypes.bool,
@@ -39,7 +39,7 @@ class StudentItem extends PureComponent {
 
 
   render() {
-    const { _id, batchNum, studentName, photo, yellow, red, green } = this.props
+    const { _id, studentName, photo, yellow, red, green } = this.props
     const categories = { yellow, red, green }
 
     return(
@@ -49,6 +49,7 @@ class StudentItem extends PureComponent {
             <div style={{ height: '18rem',
               backgroundSize: 'cover',
               backgroudPosition: 'center',
+              justifyContent: 'center',
               overflow: 'hidden',
               backgroundImage: `url(${photo })` }}
             />

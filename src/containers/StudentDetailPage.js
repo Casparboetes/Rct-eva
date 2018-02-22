@@ -5,7 +5,7 @@ import Paper from 'material-ui/Paper'
 import { fetchOneStudent } from '../actions/students/fetchStudents'
 import Title from '../components/UI/Title'
 
-const dialogStyle = {
+const dialogStyleTitle = {
   flex: 'auto',
   textAlign: 'center',
   width: 'auto',
@@ -14,31 +14,57 @@ const dialogStyle = {
   color: 'black',
 }
 
+const dialogStyle = {
+    float: 'center',
+    display: 'flex',
+    flexFlow: 'column wrap',
+    width: '500px',
+    padding: '2rem',
+    textAlign: 'left',
+    backgroundColor: 'white',
+  }
+
 export class StudentDetailPage extends PureComponent {
   static propTypes = {
+    _id: PropTypes.string,
+    batchNum: PropTypes.number,
     studentName: PropTypes.string,
+    photo: PropTypes.string,
   }
 
   render() {
-    const { _id, photo, studentName, summary, green, yellow, red, evaluationDate } = this.props
+    const { _id, photo, studentName, remarks, green, yellow, red, evaluationDate } = this.props
 
     if (!_id) return null
 
+
     return(
-      <Paper style={ dialogStyle }>
+      <div>
+      <Paper style={ dialogStyleTitle }>
         <header className="nav">
           <Title content="Student Detail Page" />
         </header>
-        <main>
-          { photo }
-          { studentName }
-          { summary }
+      </Paper>
+      <Paper>
+        <main style={ dialogStyle }>
+
+      <h2>  { studentName } </h2>
+      <div style={{ height: '20rem',
+        width: '18rem',
+        backgroundSize: 'cover',
+        backgroudPosition: 'center',
+        justifyContent: 'center',
+        overflow: 'hidden',
+        backgroundImage: `url(${photo })` }}
+      />
+          { remarks }
           { green }
           { red }
           { yellow }
           { evaluationDate }
         </main>
       </Paper>
+      </div>
     )
   }
 }

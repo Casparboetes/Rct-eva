@@ -7,7 +7,7 @@ const dialogStyle = {
     float: 'left',
     display: 'flex',
     flexFlow: 'column wrap',
-    width: '400px',
+    width: '325px',
     margin: '2rem',
     marginLeft: '2rem',
     padding: '2rem',
@@ -26,7 +26,7 @@ class BatchItem extends PureComponent {
   }
 
  render() {
-     const { batchNum ,endDate, startDate } = this.props
+     const { batchNum, endDate, startDate } = this.props
 
      return(
       <Paper style={ dialogStyle }>

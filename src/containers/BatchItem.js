@@ -25,12 +25,6 @@ class BatchItem extends PureComponent {
     ...batchShape.isRequired,
   }
 
- // forceUpdateHandler(){
- //   this.forceUpdate()
- // }
-
- // onClick={this.forceUpdateHandler.bind(this)}
-
  render() {
      const { batchNum ,endDate, startDate } = this.props
 

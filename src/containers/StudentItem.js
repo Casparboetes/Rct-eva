@@ -38,15 +38,20 @@ class StudentItem extends PureComponent {
     return(
       <Paper style={ dialogStyle }>
         <header>
-          <div className="cover"
-            style={{ height: '200px', backgroundImage: `url(${photo })` }} />
-
-            <h1>
-              <Link to={`/students/${ _id }`}>
-                {studentName}
-              </Link>
-            </h1>
-          </header>
+          <Link to={`/students/${ _id }`}>
+            <div style={{ height: '22rem',
+              backgroundSize: 'cover',
+              backgroudPosition: 'center',
+              overflow: 'hidden',
+              backgroundImage: `url(${photo })` }}
+            />
+          </Link>
+          <h2>
+            <Link to={`/students/${ _id }`}>
+              {studentName}
+            </Link>
+          </h2>
+        </header>
           <h3> Batch Number: { batchNum } </h3>
           <h3> Student Id: { _id } </h3>
         <footer>

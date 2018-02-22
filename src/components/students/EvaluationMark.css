@@ -1,0 +1,35 @@
+li.EvalutionMark {
+  list-style: none;
+  display: inline-block;
+  border: 2.5px solid #cec;
+  height: 1.8em;
+  text-align: center;
+  border-radius: 1.8em;
+  padding: 5px;
+  line-height: 1.5em;
+  min-width: 1.8em; }
+  li.EvalutionMark span {
+    display: inline-block;
+    font-size: 1em;
+    padding: 0;
+    width: 0;
+    overflow: hidden;
+    text-indent: 30em;
+    transition: text-indent 0.8s ease-out; }
+  li.EvalutionMark img {
+    margin: 6px 0;
+    height: 1em; }
+  li.EvalutionMark:hover span {
+    text-indent: 0;
+    width: 6em; }
+  li.EvalutionMark:hover img {
+    margin: 5px 0 5px 10px; }
+  li.EvalutionMark.yellow {
+    border-color: #F6A623;
+    color: #F6A623; }
+  li.EvalutionMark.red {
+    border-color: #D32F2F;
+    color: #D32F2F; }
+  li.EvalutionMark.green {
+    border-color: #417505;
+    color: #417505; }

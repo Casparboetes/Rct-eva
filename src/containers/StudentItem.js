@@ -3,22 +3,28 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import EvalutionMark from '../components/students/EvaluationMark'
 import Paper from 'material-ui/Paper'
 
 const dialogStyle = {
     float: 'left',
     display: 'flex',
     flexFlow: 'column wrap',
-    width: '400px',
+    width: '325px',
     margin: '2rem',
     marginLeft: '2rem',
     padding: '2rem',
     textAlign: 'left',
   }
 
+  const evalationMarkStyle = {
+    float: 'right',
+    display: 'flex',
+  }
+
 export const studentShape = PropTypes.shape({
     _id: PropTypes.string.isRequired,
-    batchNum: PropTypes.number.isRequired,
+    batchNum: PropTypes.number,
     studentName: PropTypes.string.isRequired,
     photo: PropTypes.string,
     yellow: PropTypes.bool,
@@ -33,15 +39,17 @@ class StudentItem extends PureComponent {
 
 
   render() {
-    const { _id, batchNum, studentName, photo, yellow, red, green } = this.props
+    const { _id, studentName, photo, yellow, red, green } = this.props
+    const categories = { yellow, red, green }
 
     return(
       <Paper style={ dialogStyle }>
         <header>
           <Link to={`/students/${ _id }`}>
-            <div style={{ height: '22rem',
+            <div style={{ height: '18rem',
               backgroundSize: 'cover',
               backgroudPosition: 'center',
+              justifyContent: 'center',
               overflow: 'hidden',
               backgroundImage: `url(${photo })` }}
             />
@@ -52,9 +60,8 @@ class StudentItem extends PureComponent {
             </Link>
           </h2>
         </header>
-          <h3> Batch Number: { batchNum } </h3>
-          <h3> Student Id: { _id } </h3>
-        <footer>
+        <footer style={ evalationMarkStyle }>
+        <EvalutionMark { ...categories } />
 
         </footer>
       </Paper>

@@ -12,18 +12,18 @@ export const FETCHED_STUDENTS_BY_BATCHNUM = 'FETCHED_STUDENTS_BY_BATCHNUM'
 
 const api = new ApiClient()
 
-// export const fetchRecipes = () => {
-//   return dispatch => {
-//     const path = '/recipes'
-//     // dispatch(loading(path, true))
-//
-//     api.get(path)
-//       .then(res => dispatch({ type: FETCHED_STUDENTS, payload: res.body }))
-//     //   .catch(err => dispatch(loadError(err)))
-//     //
-//     // dispatch(loading(false))
-//   }
-// }
+export const fetchOneStudent = (id) => {
+  return dispatch => {
+    const path = `/students/${id}`
+    // dispatch(loading(path, true))
+
+    api.get(path)
+      .then(res => dispatch({ type: FETCHED_STUDENTS, payload: res.body }))
+    //   .catch(err => dispatch(loadError(err)))
+    //
+    // dispatch(loading(false))
+  }
+}
 
 export const fetchStudentsByBatchId = (batchNum) => {
   return dispatch => {

@@ -7,7 +7,6 @@ import {
   LOAD_SUCCESS
 } from '../loading'
 
-
 export const FETCHED_BATCHES = 'FETCHED_BATCHES'
 export const FETCHED_ONE_BATCH = 'FETCHED_ONE_BATCH'
 

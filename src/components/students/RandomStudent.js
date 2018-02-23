@@ -40,9 +40,7 @@ class RandomStudent extends PureComponent {
     )
   }
 }
-// </Link>
-//
-// <Link to={`/students/batch/${ this.props.batchId }/random`}>
+
 const mapStateToProps = ({ currentUser }) => ({
   signedIn: !!currentUser && !!currentUser._id,
 })

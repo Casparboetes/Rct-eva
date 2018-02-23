@@ -19,7 +19,7 @@ export default (state = [], { type, payload } = {}) => {
       return payload
 
     case RANDOM_STUDENT_SELECTED :
-      return payload
+      return [payload]
 
     default :
       return state

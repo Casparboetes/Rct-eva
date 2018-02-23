@@ -1,6 +1,7 @@
 import BatchesContainer from './BatchesContainer'
 import StudentContainer from './StudentContainer'
 import StudentDetailPage from './StudentDetailPage'
+import Random from './Random'
 import SignIn from './SignIn'
 
 export {
@@ -8,4 +9,5 @@ export {
   BatchesContainer,
   StudentContainer,
   StudentDetailPage,
+  Random,
 }

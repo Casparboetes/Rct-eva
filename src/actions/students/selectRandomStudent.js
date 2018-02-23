@@ -13,7 +13,6 @@ const api = new API()
 
 export const selectRandomStudent = (batchNum) => {
   return (dispatch) => {
-    console.log(batchNum)
     dispatch({ type: APP_LOADING })
 
     api.get(`/students/batch/${ batchNum }/random`)

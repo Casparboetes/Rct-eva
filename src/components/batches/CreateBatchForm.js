@@ -9,6 +9,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 const dialogStyle = {
   float: 'left',
   width: '325px',
+  height: '230px',
   margin: '2rem',
   marginLeft: '2rem',
   padding: '2rem',

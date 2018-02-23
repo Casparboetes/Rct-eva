@@ -1,20 +1,27 @@
 import API from '../../api/client'
+import {
+  APP_LOADING,
+  APP_DONE_LOADING,
+  LOAD_ERROR,
+  LOAD_SUCCESS
+} from '../loading'
 
-export const CREATED_STUDENT = 'CREATED_STUDENT'
+
+export const RANDOM_STUDENT_SELECTED = 'RANDOM_STUDENT_SELECTED'
 
 const api = new API()
 
-export default (newStudent) => {
+export const selectRandomStudent = (batchNum) => {
   return (dispatch) => {
-    console.log(dispatch)
-    console.log(newStudent)
+    console.log(batchNum)
     dispatch({ type: APP_LOADING })
 
-    api.post('/students/random', newStudent)
+    api.get(`/students/batch/${ batchNum }/random`)
       .then((res) => {
         dispatch({ type: APP_DONE_LOADING })
         dispatch({ type: LOAD_SUCCESS })
-        dispatch({ type: CREATED_STUDENT, payload: res.body})
+        dispatch({ type: RANDOM_STUDENT_SELECTED, payload: res.body})
+        console.log(res.body)
       })
 
       .catch((err) => {

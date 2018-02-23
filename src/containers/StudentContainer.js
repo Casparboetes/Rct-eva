@@ -6,9 +6,12 @@ import Paper from 'material-ui/Paper'
 import StudentItem, { studentShape } from './StudentItem'
 import { fetchStudentsByBatchId } from '../actions/students/fetchStudents'
 import CreateStudentForm from '../components/students/CreateStudentForm'
+import RandomStudent from '../components/students/RandomStudent'
+import RaisedButton from 'material-ui/RaisedButton'
 
 const dialogStyle = {
-  flex: 'auto',
+  flex: '1',
+  flexDirection: 'column',
   textAlign: 'center',
   width: 'auto',
   padding: '1px',
@@ -24,22 +27,25 @@ class StudentContainer extends PureComponent {
   componentWillMount() {
     this.props.fetch(this.props.match.params.batchId)
   }
-//
+
   renderStudent = (student, index) => {
     return <StudentItem key={index} { ...student } />
   }
 
   render() {
     return (
-      <Paper style={ dialogStyle }>
-        <header className="nav">
-          <Title content="Student List" />
-          <CreateStudentForm batchId={this.props.match.params.batchId} />
-        </header>
-        <main>
-          {this.props.students.map(this.renderStudent.bind(this))}
-        </main>
-      </Paper>
+      <div>
+        <Paper style={ dialogStyle }>
+          <header className="nav">
+            <Title content="Student List" />
+            <CreateStudentForm batchId={this.props.match.params.batchId} />
+          </header>
+          <main>
+            <RandomStudent batchId={ this.props.match.batchId } />
+            {this.props.students.map(this.renderStudent.bind(this))}
+          </main>
+        </Paper>
+      </div>
     )
   }
 }

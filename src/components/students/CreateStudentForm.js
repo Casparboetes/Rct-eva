@@ -7,6 +7,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 const dialogStyle = {
   float: 'left',
   width: '325px',
+  height: '463px',
   margin: '2rem',
   marginLeft: '2rem',
   padding: '2rem',
@@ -86,6 +87,8 @@ class CreateStudentForm extends PureComponent {
           onClick={this.saveBatch.bind(this)}
           label="Add Student"
           primary={true} />
+
+
       </Paper>
     )
   }

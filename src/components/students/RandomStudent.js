@@ -5,6 +5,8 @@ import RaisedButton from 'material-ui/RaisedButton'
 import Paper from 'material-ui/Paper'
 import StudentIcon from 'material-ui/svg-icons/action/assignment-ind'
 import {selectRandomStudent} from '../../actions/students/selectRandomStudent'
+// import { Link } from 'react-router-dom'
+
 
 const dialogStyle = {
   float: 'left',
@@ -22,15 +24,16 @@ class RandomStudent extends PureComponent {
   }
 
   render() {
+    // const { _id } = this.props
     if (!this.props.signedIn) return null
 
     return (
         <Paper style={ dialogStyle }>
-          <RaisedButton
-            label="Choose Student"
-            primary={true}
-            onClick={this.props.selectRandomStudent}
-            icon={<StudentIcon />} />
+            <RaisedButton
+              label="Choose Student"
+              primary={true}
+              onClick={() => this.props.selectRandomStudent(this.props.batchId)}
+              icon={<StudentIcon />} />
         </Paper>
     )
   }

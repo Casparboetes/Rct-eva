@@ -7,7 +7,6 @@ import StudentItem, { studentShape } from './StudentItem'
 import { fetchStudentsByBatchId } from '../actions/students/fetchStudents'
 import CreateStudentForm from '../components/students/CreateStudentForm'
 import RandomStudent from '../components/students/RandomStudent'
-import RaisedButton from 'material-ui/RaisedButton'
 
 const dialogStyle = {
   flex: '1',
@@ -33,6 +32,8 @@ class StudentContainer extends PureComponent {
   }
 
   render() {
+    if(!this.props.students) return null
+
     return (
       <div>
         <Paper style={ dialogStyle }>
@@ -41,7 +42,7 @@ class StudentContainer extends PureComponent {
             <CreateStudentForm batchId={this.props.match.params.batchId} />
           </header>
           <main>
-            <RandomStudent batchId={ this.props.match.batchId } />
+            <RandomStudent batchId={ this.props.match.params.batchId } />
             {this.props.students.map(this.renderStudent.bind(this))}
           </main>
         </Paper>

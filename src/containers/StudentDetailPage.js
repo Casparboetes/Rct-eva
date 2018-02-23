@@ -35,7 +35,7 @@ export class StudentDetailPage extends PureComponent {
   constructor(props) {
     super()
 
-    const { _id, photo, studentName, remarks, green, yellow, red, evaluationDate } = props
+    const { photo, studentName, remarks, green, yellow, red, evaluationDate } = props
 
     this.state = {
       studentName,
@@ -47,10 +47,6 @@ export class StudentDetailPage extends PureComponent {
       red,
     }
   }
-
-  // componentWillMount() {
-  //   this.props.fetchOneStudent()
-  // }
 
   render() {
     const { _id, photo, studentName, remarks, green, yellow, red, evaluationDate } = this.props

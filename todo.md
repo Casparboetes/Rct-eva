@@ -139,3 +139,127 @@ EvaluationCategory
 ===============================================================================
 
 // cut from fetchBatches.js
+
+===============================================================================
+// this was Random.js attempt to use a Dialog
+
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import Title from '../components/UI/Title'
+import Dialog from 'material-ui/Dialog'
+import FlatButton from 'material-ui/FlatButton'
+import RaisedButton from 'material-ui/RaisedButton'
+
+
+ class Random extends PureComponent {
+  state = {
+    open: false,
+  }
+
+  handleOpen = () => {
+    this.setState({open: true})
+  }
+
+  handleClose = () => {
+    this.setState({open: false})
+  }
+
+  render() {
+    const actions = [
+      <FlatButton
+        label="Delete"
+        primary={true}
+        onClick={this.handleClose}
+      />,
+      <FlatButton
+        label="Save"
+        primary={true}
+        keyboardFocused={true}
+        onClick={this.handleClose}
+      />,
+    ]
+
+    return (
+      <div>
+        <RaisedButton label="Select Student" onClick={this.handleOpen} />
+        <Dialog
+          title="Show Random Student"
+          actions={actions}
+          modal={false}
+          open={this.state.open}
+          onRequestClose={this.handleClose}
+        >
+        </Dialog>
+      </div>
+    )
+  }
+}
+
+export default Random
+
+===============================================================================
+
+// from subscribe
+
+export const GAME_CREATED = 'GAME_CREATED'
+export const GAME_UPDATED = 'GAME_UPDATED'
+export const GAME_REMOVED = 'GAME_REMOVED'
+export const GAME_PLAYERS_UPDATED = 'GAME_PLAYERS_UPDATED'
+
+===============================================================================
+
+// src/reducers/games.js
+import { FETCHED_GAMES, FETCHED_ONE_GAME } from '../actions/games/fetch'
+import {
+  GAME_CREATED,
+  GAME_UPDATED,
+  GAME_REMOVED,
+  GAME_PLAYERS_UPDATED,
+} from '../actions/games/subscribe'
+
+export default (state = [], { type, payload } = {}) => {
+  switch (type) {
+    case FETCHED_GAMES :
+      return [ ...payload ]
+
+    case FETCHED_ONE_GAME :
+      const gameIds = state.map(g => g._id)
+      if (gameIds.indexOf(payload._id) < 0) {
+        return [{ ...payload }].concat(state)
+      }
+      return state.map((game) => {
+        if (game._id === payload._id) {
+          return { ...payload }
+        }
+        return game
+      })
+
+    case GAME_CREATED :
+      const newGame = { ...payload }
+      return [newGame].concat(state)
+
+    case GAME_UPDATED :
+      return state.map((game) => {
+        if (game._id === payload._id) {
+          return { ...payload }
+        }
+        return game
+      })
+
+    case GAME_PLAYERS_UPDATED :
+      return state.map((game) => {
+        if (game._id === payload.game._id) {
+          return { ...payload.game, players: payload.players }
+        }
+        return game
+      })
+
+    case GAME_REMOVED :
+        return state.filter((game) => (game._id !== payload._id))
+
+    default :
+      return state
+
+  }
+}

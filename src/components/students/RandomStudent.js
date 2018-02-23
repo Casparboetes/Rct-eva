@@ -24,10 +24,8 @@ class RandomStudent extends PureComponent {
   }
 
   render() {
-    const { _id } = this.props
+    // const { _id } = this.props
     if (!this.props.signedIn) return null
-
-    console.log(this.props.batchId)
 
     return (
         <Paper style={ dialogStyle }>

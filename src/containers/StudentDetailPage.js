@@ -32,6 +32,26 @@ export class StudentDetailPage extends PureComponent {
     photo: PropTypes.string,
   }
 
+  constructor(props) {
+    super()
+
+    const { _id, photo, studentName, remarks, green, yellow, red, evaluationDate } = props
+
+    this.state = {
+      studentName,
+      photo,
+      remarks,
+      evaluationDate,
+      green,
+      yellow,
+      red,
+    }
+  }
+
+  // componentWillMount() {
+  //   this.props.fetchOneStudent()
+  // }
+
   render() {
     const { _id, photo, studentName, remarks, green, yellow, red, evaluationDate } = this.props
 

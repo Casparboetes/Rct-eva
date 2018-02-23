@@ -14,14 +14,24 @@ const api = new ApiClient()
 
 export const fetchOneStudent = (id) => {
   return dispatch => {
-    const path = `/students/${id}`
-    // dispatch(loading(path, true))
+    dispatch({ type: APP_LOADING })
 
-    api.get(path)
-      .then(res => dispatch({ type: FETCHED_STUDENTS, payload: res.body }))
-    //   .catch(err => dispatch(loadError(err)))
-    //
-    // dispatch(loading(false))
+    api.get(`/students/${id}`)
+      .then(res => {
+        dispatch({ type: APP_DONE_LOADING })
+        dispatch({ type: LOAD_SUCCESS })
+
+        dispatch({ type: FETCHED_STUDENTS,
+          payload: res.body
+        })
+      })
+      .catch((err) => {
+        dispatch({ type: APP_DONE_LOADING })
+        dispatch({
+          type: LOAD_ERROR,
+          payload: err.message
+        })
+      })
   }
 }
 

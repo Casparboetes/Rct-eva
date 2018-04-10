@@ -2,9 +2,9 @@
 
 My Final Codaisseur project:
 
-- A tool for teacher to rate students based upon their daily performance.
+- A tool for teachers to rate students based upon their daily performance.
 - The teacher can select a random student to ask a question, see below for details about the algorithm part.
-- Framework used  are React.js, Reacr-Redux with a RESTful Express API on top of MongoDB combined with Mongoose.
+- Frameworks used are React.js, React-Redux with a RESTful Express API on top of MongoDB combined with Mongoose.
 
 ### Images
 
@@ -27,10 +27,11 @@ My Final Codaisseur project:
 ## The Important Part
 ```
 As a Teacher, from the class view I can click a button “ASK A QUESTION”. It shows me the name and picture of a random student to ask a question. Not entirely random though: RED students get ~49% of the questions YELLOW students ~33%, and GREEN students ~18%.
+
 ```
 
 - Written test for the algorithm: see Exp-eva/lib/tekstRandomizerTest.js
-- It runs 1.000.000 to check the proper perentages.
+- Run it a 1.000.000 to check the proper percentages.
 
 ## Running Locally
 ```

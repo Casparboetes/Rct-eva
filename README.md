@@ -26,7 +26,10 @@ My Final Codaisseur project:
 
 ## The Important Part
 ```
-As a Teacher, from the class view I can click a button “ASK A QUESTION”. It shows me the name and picture of a random student to ask a question. Not entirely random though: RED students get ~49% of the questions YELLOW students ~33%, and GREEN students ~18%.
+As a Teacher, from the class view I can click a button “ASK A QUESTION”.
+It shows me the name and picture of a random student to ask a question.
+Not entirely random though: RED students get ~49% of the questions
+YELLOW students ~33%, and GREEN students ~18%.
 
 ```
 

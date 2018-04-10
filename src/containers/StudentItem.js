@@ -1,7 +1,6 @@
 // src/students/studentItem.js
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import EvalutionMark from '../components/students/EvaluationMark'
 import Paper from 'material-ui/Paper'
@@ -10,7 +9,7 @@ const dialogStyle = {
     float: 'left',
     display: 'flex',
     flexFlow: 'column wrap',
-    width: '325px',
+    width: '350px',
     margin: '2rem',
     marginLeft: '2rem',
     padding: '2rem',
@@ -69,7 +68,4 @@ class StudentItem extends PureComponent {
   }
 }
 
-const mapDispatchToProps = {
-}
-
-export default connect(null, mapDispatchToProps)(StudentItem)
+export default StudentItem

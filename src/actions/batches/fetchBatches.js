@@ -8,7 +8,7 @@ import {
 } from '../loading'
 
 export const FETCHED_BATCHES = 'FETCHED_BATCHES'
-export const FETCHED_ONE_BATCH = 'FETCHED_ONE_BATCH'
+// export const FETCHED_ONE_BATCH = 'FETCHED_ONE_BATCH'
 
 const api = new API()
 
@@ -35,27 +35,27 @@ export const fetchBatches = () => {
       })
   }
 }
-
-export const fetchBatchById = (batchNum) => {
-  return dispatch => {
-    dispatch({ type: APP_LOADING })
-
-    api.get(`/students/batch/${ batchNum }`)
-      .then((res) => {
-        dispatch({ type: APP_DONE_LOADING })
-        dispatch({ type: LOAD_SUCCESS })
-
-        dispatch({
-          type: FETCHED_ONE_BATCH,
-          payload: res.body
-        })
-      })
-      .catch((err) => {
-        dispatch({ type: APP_DONE_LOADING })
-        dispatch({
-          type: LOAD_ERROR,
-          payload: err.message
-        })
-      })
-  }
-}
+//
+// export const fetchBatchById = (batchNum) => {
+//   return dispatch => {
+//     dispatch({ type: APP_LOADING })
+//
+//     api.get(`/students/batch/${ batchNum }`)
+//       .then((res) => {
+//         dispatch({ type: APP_DONE_LOADING })
+//         dispatch({ type: LOAD_SUCCESS })
+//
+//         dispatch({
+//           type: FETCHED_ONE_BATCH,
+//           payload: res.body
+//         })
+//       })
+//       .catch((err) => {
+//         dispatch({ type: APP_DONE_LOADING })
+//         dispatch({
+//           type: LOAD_ERROR,
+//           payload: err.message
+//         })
+//       })
+//   }
+// }

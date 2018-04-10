@@ -65,7 +65,6 @@ class CreateBatchForm extends PureComponent {
       endDate,
     }
 
-    console.log(batch)
     this.props.createBatch(batch)
   }
 

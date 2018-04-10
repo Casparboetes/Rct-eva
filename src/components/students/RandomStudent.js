@@ -10,7 +10,7 @@ import {selectRandomStudent} from '../../actions/students/selectRandomStudent'
 
 const dialogStyle = {
   float: 'left',
-  width: '325px',
+  width: '350px',
   height: '463px',
   margin: '2rem',
   marginLeft: '2rem',

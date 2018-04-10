@@ -50,7 +50,7 @@ class BatchsContainer extends PureComponent {
   }
 }
 
-// <BatchEditor className="editor" />
+
 // Same as:
 // const mapStoreToProps = (store) => {
 //   return { batches: store.batches }

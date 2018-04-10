@@ -7,7 +7,7 @@ const dialogStyle = {
     float: 'left',
     display: 'flex',
     flexFlow: 'column wrap',
-    width: '325px',
+    width: '350px',
     margin: '2rem',
     marginLeft: '2rem',
     padding: '2rem',

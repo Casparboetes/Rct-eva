@@ -256,10 +256,131 @@ export default (state = [], { type, payload } = {}) => {
       })
 
     case GAME_REMOVED :
-        return state.filter((game) => (game._id !== payload._id))
+          return state.filter((game) => (game._id !== payload._id))
 
     default :
       return state
 
   }
 }
+
+
+============================================================================
+
+
+
+  updateTitle(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault()
+      this.refs.summary.medium.elements[0].focus()
+    }
+    this.setState({
+      studentName: this.refs.studentName.value
+    })
+  }
+
+  updatePhoto(event) {
+    this.setState({
+      photo: this.refs.photo.value
+    })
+  }
+
+  updateEvaluationDate(text) {
+    this.setState({
+      evaluationDate: this.refs.evaluationDate.value
+    })
+  }
+
+  updateIntro(text, medium) {
+    this.setState({
+      summary: text
+    })
+  }
+
+  setColor(event) {
+    this.setState({
+      red: event.target.value === 'red',
+      yellow: event.target.value === 'yellow',
+      green: event.target.value === 'green'
+    })
+  }
+
+  saveStudent() {
+    const {
+      studentName,
+      summary,
+      yellow,
+      red,
+      green,
+      photo,
+      evaluationDate,
+    } = this.state
+
+    const student = {
+      studentName,
+      summary: toMarkdown(summary),
+      yellow,
+      red,
+      green,
+      photo,
+      evaluationDate,
+      _id: this.props.match.params.studentId,
+    }
+
+    console.log("DEZE STUDENT", student)
+    console.log("DEZE PROPS", this.props.match.params.studentId)
+    console.log("DERDER PROPS", this.props.match.params.batchId)
+    console.log("VIER", this.props.updateStudent(student))
+    // {() => this.props.updateStudent(student)}
+    this.props.updateStudent(student)
+
+  }
+
+
+
+
+          <div className="editor">
+            <input
+              type="text"
+              ref="studentName"
+              className="studentName"
+              placeholder="Enter full name"
+              defaultValue={this.state.studentName}
+              onChange={this.updateTitle.bind(this)}
+              onKeyDown={this.updateTitle.bind(this)} />
+              <br />
+
+              <input
+              type="text"
+              ref="photo"
+              className="photo"
+              placeholder="Photo URL"
+              defaultValue={this.state.photo}
+              onChange={this.updatePhoto.bind(this)}
+              onKeyDown={this.updatePhoto.bind(this)} />
+              <br />
+
+              <input
+                type="date"
+                ref="evaluationDate"
+                onKeyDown={this.updateEvaluationDate.bind(this)} />
+                <br />
+
+            <Editor style={{display: 'block'}}
+              ref="summary"
+              options={{
+                placeholder: {text: 'Remark...'}
+              }}
+              onChange={this.updateIntro.bind(this)}
+              text={this.state.summary} />
+
+            {EVAL.map((type) => {
+              return <label key={type} htmlFor={type}>
+                <input id={type} type="radio" name="type" value={type} onChange={this.setColor.bind(this)} />
+                {type}
+              </label>
+            })}
+
+            <div className="actions">
+              <button className="primary" onClick={this.saveStudent.bind(this)}>Save</button>
+            </div>

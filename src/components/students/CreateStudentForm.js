@@ -6,7 +6,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 
 const dialogStyle = {
   float: 'left',
-  width: '325px',
+  width: '350px',
   height: '463px',
   margin: '2rem',
   marginLeft: '2rem',
@@ -31,7 +31,7 @@ class CreateStudentForm extends PureComponent {
     }
   }
 
-  updateStudent(event) {
+  updateStudentName(event) {
     this.setState({
       studentName: this.refs.studentName.value
     })
@@ -68,8 +68,8 @@ class CreateStudentForm extends PureComponent {
           ref="studentName"
           placeholder="Enter full name"
           defaultValue={this.state.studentName}
-          onChange={this.updateStudent.bind(this)}
-          onKeyDown={this.updateStudent.bind(this)} />
+          onChange={this.updateStudentName.bind(this)}
+          onKeyDown={this.updateStudentName.bind(this)} />
           <br />
 
         <input

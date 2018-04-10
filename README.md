@@ -3,7 +3,7 @@
 My Final Codaisseur project:
 
 - A tool for teachers to rate students based upon their daily performance.
-- The teacher can select a random student to ask a question, check'The Important Part'
+- The teacher can select a random student to ask a question, check 'The Important Part'
 - Frameworks used are React.js, React-Redux with a RESTful Express API on top of MongoDB combined with Mongoose.
 
 ### Images

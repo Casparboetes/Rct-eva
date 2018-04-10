@@ -1,4 +1,4 @@
-# Final Project: Student Evaluations Tool
+# Student Evaluations Tool
 
 My Final Codaisseur project:
 
